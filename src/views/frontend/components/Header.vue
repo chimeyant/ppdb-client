@@ -95,13 +95,7 @@ import { mapState, mapActions } from "vuex";
 export default {
   name: "header",
   data: () => ({
-    menus: [
-      { title: "Beranda", route: "/home" },
-      { title: "Program Keahlian", route: "/pagu" },
-      { title: "Pendaftar", route: "/daftar-peserta" },
-      { title: "Pengumuman", route: "/pengumuman" },
-      { title: "Login", route: "login" },
-    ],
+    menus: [{ title: "Login", route: "login" }],
   }),
   mounted() {},
   computed: {

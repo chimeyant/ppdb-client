@@ -94,30 +94,30 @@ const routes = [
     name: "",
     component: BaseFrontend,
     children: [
-      { path: "", redirect: { name: "home" } },
-      { path: "home", name: "home", component: Home },
-      { path: "pagu", name: "pagu", component: Pagu },
+      { path: "", redirect: { name: "login" } },
+      // { path: "home", name: "home", component: Home },
+      // { path: "pagu", name: "pagu", component: Pagu },
 
-      {
-        path: "daftar-peserta",
-        name: "daftar-peserta",
-        component: DaftarPeserta,
-      },
-      {
-        path: "pengumuman",
-        name: "pengumuman",
-        component: Pengumuman,
-      },
-      {
-        path: "verify/:id",
-        name: "verify",
-        component: Verify,
-      },
-      {
-        path: "registrasi",
-        name: "registrasi",
-        component: Registrasi,
-      },
+      // {
+      //   path: "daftar-peserta",
+      //   name: "daftar-peserta",
+      //   component: DaftarPeserta,
+      // },
+      // {
+      //   path: "pengumuman",
+      //   name: "pengumuman",
+      //   component: Pengumuman,
+      // },
+      // {
+      //   path: "verify/:id",
+      //   name: "verify",
+      //   component: Verify,
+      // },
+      // {
+      //   path: "registrasi",
+      //   name: "registrasi",
+      //   component: Registrasi,
+      // },
       {
         path: "login",
         name: "login",
