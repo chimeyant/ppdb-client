@@ -1,6 +1,9 @@
 <template>
   <div class="home pa-6">
-    <v-flex row class="pb-2">
+    <v-flex
+      row
+      class="pb-2"
+    >
       <v-icon :color="theme">how_to_reg</v-icon>
       <v-subheader class="text-h6">
         <h4>VERIFIKASI DATA PESERTA</h4>
@@ -13,12 +16,15 @@
     <v-row>
       <v-col col="12">
         <v-card>
-          <v-card-title
-            :class="`flex flex-row-reverse ` + theme + ` lighten-1`"
-          >
-            <v-btn icon @click="fetchRecords"
-              ><v-icon color="white">autorenew</v-icon></v-btn
-            >
+          <v-card-title :class="`flex flex-row-reverse ` + theme + ` lighten-1`">
+            <v-btn
+              icon
+              @click="fetchRecords"
+            ><v-icon color="white">autorenew</v-icon></v-btn>
+            <v-btn
+              icon
+              @click=""
+            ><v-icon color="white">home</v-icon></v-btn>
             <v-spacer></v-spacer>
             <v-text-field
               v-model="search"
@@ -47,20 +53,31 @@
               indeterminate
             ></v-progress-linear>
             <template v-slot:item.id="{ value }">
-              <v-tooltip color="green" bottom>
+              <v-tooltip
+                color="green"
+                bottom
+              >
                 <template v-slot:activator="{ on }">
-                  <v-btn text small icon v-on="on">
-                    <v-icon color="green" @click="openFormVerifikasi(value)"
-                      >verified_user</v-icon
-                    >
+                  <v-btn
+                    text
+                    small
+                    icon
+                    v-on="on"
+                  >
+                    <v-icon
+                      color="green"
+                      @click="openFormVerifikasi(value)"
+                    >verified_user</v-icon>
                   </v-btn>
                 </template>
                 <span>Verifikasi Peserta</span>
               </v-tooltip>
             </template>
             <template v-slot:item.status="{ value }">
-              <v-chip small :color="value == '1' ? 'grey' : 'yellow'"
-                >{{
+              <v-chip
+                small
+                :color="value == '1' ? 'grey' : 'yellow'"
+              >{{
                   value == 1
                     ? "PENGAJUAN BARU"
                     : value == 2
