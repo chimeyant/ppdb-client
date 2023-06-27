@@ -5,7 +5,7 @@
   >
     <v-flex
       row
-      class="pl-3 pb-2 pt-5"
+      class="pl-4 pb-2 pt-5"
     >
       <v-icon :color="theme">dashboard</v-icon>
       <v-subheader class="text-h6"> DASHBOARD </v-subheader>
@@ -24,7 +24,7 @@
                 dark
               >
                 <v-app-bar-nav-icon></v-app-bar-nav-icon>
-                <v-toolbar-title class="white--text">Per Jenis Kelamin</v-toolbar-title>
+                <v-toolbar-title class="white--text subtitle-1">Per Jenis Kelamin</v-toolbar-title>
                 <v-spacer></v-spacer>
               </v-toolbar>
               <v-card
@@ -48,7 +48,7 @@
                 dark
               >
                 <v-app-bar-nav-icon></v-app-bar-nav-icon>
-                <v-toolbar-title class="white--text">Per Jurusan</v-toolbar-title>
+                <v-toolbar-title class="white--text subtitle-1">Per Jurusan</v-toolbar-title>
                 <v-spacer></v-spacer>
               </v-toolbar>
               <v-card
@@ -72,7 +72,7 @@
                 dark
               >
                 <v-app-bar-nav-icon></v-app-bar-nav-icon>
-                <v-toolbar-title class="white--text">Per Status</v-toolbar-title>
+                <v-toolbar-title class="white--text subtitle-1">Per Status</v-toolbar-title>
                 <v-spacer></v-spacer>
               </v-toolbar>
               <v-card
@@ -99,7 +99,7 @@
             >
               <div class="d-flex flex-no-wrap justify-space-between">
                 <div>
-                  <v-card-title class="subtitle-1 ">Pengajuan</v-card-title>
+                  <v-card-title class="subtitle-1 subtitle-1 ">Pengajuan</v-card-title>
 
                   <v-card-subtitle>{{ jmlformasi }} Orang</v-card-subtitle>
                   <div></div>
@@ -134,7 +134,7 @@
             >
               <div class="d-flex flex-no-wrap justify-space-between">
                 <div>
-                  <v-card-title class="subtitle-1">BERKAS DITOLAK</v-card-title>
+                  <v-card-title class="subtitle-1  ">BERKAS DITOLAK</v-card-title>
 
                   <v-card-subtitle>{{ jmlpelamar }} Orang</v-card-subtitle>
 
@@ -205,7 +205,7 @@
           >
             <v-app-bar-nav-icon></v-app-bar-nav-icon>
 
-            <v-toolbar-title class="white--text">Statistik Data Harian</v-toolbar-title>
+            <v-toolbar-title class="white--text subtitle-1">Statistik Data Harian</v-toolbar-title>
 
             <v-spacer></v-spacer>
           </v-toolbar>
@@ -285,7 +285,7 @@
           >
             <v-app-bar-nav-icon></v-app-bar-nav-icon>
 
-            <v-toolbar-title class="white--text">Statistik Data Verifikasi Pendaftaran Per
+            <v-toolbar-title class="white--text subtitle-1">Statistik Data Verifikasi Pendaftaran Per
               Jurusan</v-toolbar-title>
 
             <v-spacer></v-spacer>
@@ -366,7 +366,7 @@
           >
             <v-app-bar-nav-icon></v-app-bar-nav-icon>
 
-            <v-toolbar-title class="white--text">Statistik Data Per Jurusan Per Pilihan</v-toolbar-title>
+            <v-toolbar-title class="white--text subtitle-1">Statistik Data Per Jurusan Per Pilihan</v-toolbar-title>
 
             <v-spacer></v-spacer>
           </v-toolbar>
@@ -449,7 +449,7 @@
           >
             <v-app-bar-nav-icon></v-app-bar-nav-icon>
 
-            <v-toolbar-title class="white--text">Pengaduan</v-toolbar-title>
+            <v-toolbar-title class="white--tex subtitle-1t">Pengaduan</v-toolbar-title>
 
             <v-spacer></v-spacer>
           </v-toolbar>
@@ -532,7 +532,7 @@
           >
             <v-app-bar-nav-icon></v-app-bar-nav-icon>
 
-            <v-toolbar-title class="white--text">Pesan</v-toolbar-title>
+            <v-toolbar-title class="white--text subtitle-1">Pesan</v-toolbar-title>
 
             <v-spacer></v-spacer>
           </v-toolbar>
