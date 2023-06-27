@@ -245,7 +245,10 @@ export default {
 
     jenisinformasi: "",
 
-    jenisinformasis: [{ text: "Umum", value: "informasi-umum" }],
+    jenisinformasis: [
+      { text: "Umum", value: "informasi-umum" },
+      { text: "Akun", value: "informasi-akun" },
+    ],
   }),
   computed: {
     ...mapState([
