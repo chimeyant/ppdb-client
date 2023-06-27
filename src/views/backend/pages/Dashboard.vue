@@ -23,7 +23,7 @@
                 :color="theme"
                 dark
               >
-                <v-app-bar-nav-icon></v-app-bar-nav-icon>
+
                 <v-toolbar-title class="white--text subtitle-1">Per Jenis Kelamin</v-toolbar-title>
                 <v-spacer></v-spacer>
               </v-toolbar>
@@ -47,7 +47,7 @@
                 :color="theme"
                 dark
               >
-                <v-app-bar-nav-icon></v-app-bar-nav-icon>
+
                 <v-toolbar-title class="white--text subtitle-1">Per Jurusan</v-toolbar-title>
                 <v-spacer></v-spacer>
               </v-toolbar>
@@ -71,7 +71,7 @@
                 :color="theme"
                 dark
               >
-                <v-app-bar-nav-icon></v-app-bar-nav-icon>
+
                 <v-toolbar-title class="white--text subtitle-1">Per Status</v-toolbar-title>
                 <v-spacer></v-spacer>
               </v-toolbar>
@@ -203,7 +203,6 @@
             :color="theme"
             dark
           >
-            <v-app-bar-nav-icon></v-app-bar-nav-icon>
 
             <v-toolbar-title class="white--text subtitle-1">Statistik Data Harian</v-toolbar-title>
 
@@ -283,7 +282,6 @@
             :color="theme"
             dark
           >
-            <v-app-bar-nav-icon></v-app-bar-nav-icon>
 
             <v-toolbar-title class="white--text subtitle-1">Statistik Data Verifikasi Pendaftaran Per
               Jurusan</v-toolbar-title>
@@ -364,7 +362,6 @@
             :color="theme"
             dark
           >
-            <v-app-bar-nav-icon></v-app-bar-nav-icon>
 
             <v-toolbar-title class="white--text subtitle-1">Statistik Data Per Jurusan Per Pilihan</v-toolbar-title>
 
@@ -447,9 +444,8 @@
             :color="theme"
             dark
           >
-            <v-app-bar-nav-icon></v-app-bar-nav-icon>
 
-            <v-toolbar-title class="white--tex subtitle-1t">Pengaduan</v-toolbar-title>
+            <v-toolbar-title class="white--tex subtitle-1">Pengaduan</v-toolbar-title>
 
             <v-spacer></v-spacer>
           </v-toolbar>
@@ -530,7 +526,6 @@
             :color="theme"
             dark
           >
-            <v-app-bar-nav-icon></v-app-bar-nav-icon>
 
             <v-toolbar-title class="white--text subtitle-1">Pesan</v-toolbar-title>
 
