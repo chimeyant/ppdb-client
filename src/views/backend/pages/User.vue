@@ -289,7 +289,7 @@ export default {
     },
     postGenerateAccount: async function () {
       try {
-        this.setLoading({ dialog: true, text: "Proses Generate Akun" });
+        this.setLoading({ dialog: true, text: "Sedang membuat akun..!" });
         let {
           data: { status, message },
         } = await this.http.post("api/generate-account");

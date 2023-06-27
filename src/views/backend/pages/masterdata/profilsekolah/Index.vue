@@ -631,8 +631,8 @@
           <v-icon
             color="white"
             class="pr-3"
-          >report_problem</v-icon>
-          <span>Konfirmasi</span>
+          >mdi-alert-circle</v-icon>
+          <span class="subtitle-1">Konfirmasi</span>
         </v-card-title>
         <v-card-text>
           <p class="pt-5">Apakah anda yakin akan menghapus data pendaftar..?</p>

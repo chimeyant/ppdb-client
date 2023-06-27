@@ -201,8 +201,9 @@
           <v-icon
             color="white"
             class="pr-3"
-          >report_problem</v-icon>
-          <span>Konfirmasi</span>
+            smalll
+          >mdi-alert-circle</v-icon>
+          <span class="subtitle-1 animate__animated animate__flash animate__infinite ">Konfirmasi</span>
         </v-card-title>
         <v-card-text>
           <p class="pt-5">Apakah anda yakin akan menghapus data tersebut...?</p>
@@ -252,7 +253,7 @@
         width="300"
       >
         <v-card>
-          <v-card-title class="purple darken-1 pa-1 white--text subtitle-1">UPLOAD PROGRESS</v-card-title>
+          <v-card-title :class="theme + ` darken-1 pa-1 white--text subtitle-1`">UPLOAD PROGRESS</v-card-title>
           <br />
 
           <v-card-text class="pa-2">
