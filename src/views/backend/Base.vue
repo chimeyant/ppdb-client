@@ -121,7 +121,7 @@
                   v-show="user.avatar"
                   :src="user.avatar"
                 ></v-img>
-                <v-icon v-show="!user.avatar_path">mdi-account-circle</v-icon>
+                <v-icon v-show="!user.avatar">mdi-account-circle</v-icon>
 
               </v-list-item-avatar>
 
@@ -132,9 +132,7 @@
 
             </v-list-item>
           </v-list>
-
           <v-divider></v-divider>
-
           <v-list>
             <v-list-item @click="$router.push({name:'profil-akun'})">
               <v-list-item-action>
