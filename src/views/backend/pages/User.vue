@@ -16,14 +16,20 @@
     </v-flex>
 
     <v-row>
-      <v-col col="6">
+      <v-col cols="12">
         <v-card>
-          <v-card-title :class="`flex flex-row-reverse ` + theme + ` lighten-5`">
+          <v-card-title :class="`flex flex-row-reverse ` + theme + ` lighten-1`">
             <v-btn
               icon
               @click="fetchRecords"
             >
               <v-icon color="white">autorenew</v-icon>
+            </v-btn>
+            <v-btn
+              icon
+              @click="postGenerateAccount"
+            >
+              <v-icon color="white">mdi-account-details</v-icon>
             </v-btn>
             <v-spacer></v-spacer>
             <v-text-field
@@ -97,7 +103,7 @@
           </v-data-table>
         </v-card>
       </v-col>
-      <v-col col="6">
+      <v-col col="12">
         <v-card>
           <v-card-title :class="theme + ` lighten-1 white--text`">
             Formulir Akun Aplikasi
@@ -195,7 +201,7 @@ export default {
   data: () => ({
     num: 1,
     headers: [
-      { text: "#", value: "num" },
+      { text: "#", value: "num", width: 50 },
       {
         text: "NAMA",
         align: "start",
@@ -203,7 +209,13 @@ export default {
         value: "username",
       },
       { text: "EMAIL", value: "email" },
-      { text: "OPSI", value: "id" },
+      {
+        text: "OPSI",
+        value: "id",
+        width: 100,
+        align: "center",
+        sortable: false,
+      },
     ],
     status: [
       { text: "Aktif", value: 0 },
@@ -228,6 +240,7 @@ export default {
       "records",
       "loading",
       "event",
+      "snackbar",
     ]),
   },
   created() {
@@ -247,6 +260,7 @@ export default {
       "postEdit",
       "postUpdate",
       "postConfirmDelete",
+      "setLoading",
     ]),
     postAddNewRecord: function () {
       this.postAddNew(this.record).then(() => {
@@ -272,6 +286,32 @@ export default {
 
         this.jurusans = data;
       } catch (error) {}
+    },
+    postGenerateAccount: async function () {
+      try {
+        this.setLoading({ dialog: true, text: "Proses Generate Akun" });
+        let {
+          data: { status, message },
+        } = await this.http.post("api/generate-account");
+
+        if (!status) {
+          this.snackbar.color = this.theme;
+          this.snackbar.text = message;
+          this.snackbar.state = true;
+          return;
+        }
+
+        this.snackbar.color = this.theme;
+        this.snackbar.text = message;
+        this.snackbar.state = true;
+        this.fetchRecords();
+      } catch (error) {
+        this.snackbar.color = "red";
+        this.snackbar.text = error;
+        this.snackbar.state = true;
+      } finally {
+        this.setLoading({ dialog: false, text: "" });
+      }
     },
   },
 };

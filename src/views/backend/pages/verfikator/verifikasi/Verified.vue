@@ -253,6 +253,10 @@ export default {
 
     postImport: async function () {
       try {
+        this.setLoading({
+          dialog: true,
+          text: "Proses import data peserta...!",
+        });
         let {
           data: { status, message },
         } = await this.http.post(
@@ -272,7 +276,16 @@ export default {
         this.snackbar.state = true;
         this.closeFormImport();
         this.fetchRecords();
-      } catch (error) {}
+      } catch (error) {
+        this.snackbar.color = "red";
+        this.snackbar.text = "Opps..., terjadi kesalahan";
+        this.snackbar.state = true;
+      } finally {
+        this.setLoading({
+          dialog: false,
+          text: "",
+        });
+      }
     },
 
     downloadExcel: async function () {
