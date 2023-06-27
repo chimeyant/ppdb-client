@@ -1,6 +1,9 @@
 <template>
   <div class="home pa-6">
-    <v-flex row class="pb-2">
+    <v-flex
+      row
+      class="pb-2"
+    >
       <v-icon :color="theme">accessibility</v-icon>
       <v-subheader class="text-h6">
         <h4>PROFIL PENGGUNA</h4>
@@ -14,9 +17,7 @@
       <v-spacer></v-spacer>
       <v-col :cols="device.desktop ? `6` : `12`">
         <v-card>
-          <v-card-title :class="`white--text ` + theme + ` Plighten-1`"
-            >PROFIL PENGGUNA</v-card-title
-          >
+          <v-card-title :class="`white--text ` + theme + ` lighten-1`">PROFIL PENGGUNA</v-card-title>
 
           <v-divider></v-divider>
           <v-card-text>
@@ -41,7 +42,11 @@
                         style="height: 100%"
                       >
                         <div class="pl-14">
-                          <v-btn icon dark @click="uploadFoto">
+                          <v-btn
+                            icon
+                            dark
+                            @click="uploadFoto"
+                          >
                             <v-icon>photo_camera</v-icon>
                           </v-btn>
                         </div>
@@ -79,7 +84,11 @@
             <v-divider></v-divider>
 
             <v-col class="text-right">
-              <v-btn outlined :color="theme" @click="fetchUpdate">SIMPAN</v-btn>
+              <v-btn
+                outlined
+                :color="theme"
+                @click="fetchUpdate"
+              >SIMPAN</v-btn>
             </v-col>
           </v-card-action>
         </v-card>

@@ -13,7 +13,7 @@
           <v-list-item-subtitle> Ver.2.01 </v-list-item-subtitle>
         </v-list-item-content>
       </v-list-item>
-      <v-list-item class="px-2">
+      <v-list-item class="px-2 mb-5">
         <v-list-item-avatar>
           <v-img :src="user.avatar"></v-img>
         </v-list-item-avatar>
@@ -26,15 +26,15 @@
         </v-list-item-content>
       </v-list-item>
 
-      <v-divider></v-divider>
-
       <v-list
         dense
         nav
+        class="green darken-2 pt-5 "
+        style="border-top-left-radius: 20px;"
       >
         <template v-for="(menu, index) in menus">
           <v-list-item
-            :active-class="`white--text`"
+            :active-class="`white--text `"
             :to="menu.route"
             :key="index"
             v-if="menu.type === 'item'"
@@ -43,7 +43,7 @@
               <v-icon>{{ menu.icon }}</v-icon>
             </v-list-item-action>
             <v-list-item-content>
-              <v-list-item-title>{{ menu.title }}</v-list-item-title>
+              <v-list-item-title class="font-weight-thin">{{ menu.title }}</v-list-item-title>
             </v-list-item-content>
           </v-list-item>
 
@@ -57,8 +57,8 @@
         </template>
       </v-list>
       <template v-slot:append>
-        <v-divider></v-divider>
-        <div class="pa-2">
+
+        <!-- <div class="pa-2">
           <v-btn
             :color="theme + ` darken-2 white--text`"
             block
@@ -66,22 +66,17 @@
           >
             Logout <v-icon>exit_to_app</v-icon>
           </v-btn>
-        </div>
+        </div> -->
         <div class="upload-wrapper">
           <div id="upload-button"></div>
         </div>
       </template>
     </v-navigation-drawer>
-    <v-app-bar
-      app
-      :color="theme + ` lighten-1`"
-      dark
-    >
-
+    <v-app-bar app>
       <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
 
       <v-toolbar-title
-        class="white--text"
+        :class="theme+`--text`"
         v-show="device.desktop"
       >
         {{
@@ -90,7 +85,7 @@
 
       <v-toolbar-title
         v-show="device.mobile"
-        class="white--text"
+        :class="theme + `--text`"
       >SIM-PPDB</v-toolbar-title>
 
       <v-spacer></v-spacer>
@@ -106,6 +101,7 @@
             icon
             v-bind="attrs"
             v-on="on"
+            class="green mr-5"
           >
             <v-avatar size="26">
               <v-img
