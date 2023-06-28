@@ -15,14 +15,17 @@
       <v-col :cols="device.desktop ? `6` :`12`">
         <v-col cols="12">
 
-          <h2 class="mb-3">Login</h2>
-          Silahkan masukan pengguna dan kata sandi anda
+          <h2 class="mb-3 body-1">Login</h2>
+          <div class="font-weight-thin">
+            Silahkan masukan pengguna dan kata sandi anda
+
+          </div>
 
         </v-col>
 
         <v-col cols="12">
           <v-text-field
-            :label="info.regby"
+            label="Nomor Peserta"
             outlined
             dense
             hide-details

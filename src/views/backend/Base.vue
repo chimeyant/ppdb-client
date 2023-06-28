@@ -6,6 +6,7 @@
       src="info.apps_background_nav"
       app
       dark
+      style="height: 100vh -300px;"
     >
       <v-list-item>
         <v-list-item-content>
@@ -30,7 +31,7 @@
         dense
         nav
         class="green darken-2 pt-5 "
-        style="border-top-left-radius: 20px;"
+        style="border-top-left-radius: 20px; height: 100vh; overflow-y: auto;"
       >
         <template v-for="(menu, index) in menus">
           <v-list-item

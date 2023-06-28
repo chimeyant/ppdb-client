@@ -10,9 +10,12 @@
             color="blue darken-3"
             dark
           >
-            <v-app-bar-nav-icon></v-app-bar-nav-icon>
+            <v-icon
+              small
+              class="mr-2"
+            >mdi-circle</v-icon>
 
-            <v-toolbar-title>LEMBAR SOAL</v-toolbar-title>
+            <v-toolbar-title class="white--text">LEMBAR SOAL</v-toolbar-title>
 
             <v-spacer></v-spacer>
             <v-btn icon>
@@ -231,34 +234,43 @@
     <div class="text-center">
       <v-bottom-sheet
         v-model="sheet"
-        max-width="400"
-        inset
+        :width="device.desktop ? `400`: ``"
+        persistent
       >
         <v-sheet class="text-center">
           <v-container
             fluid
-            class="pt-0 grid-list-xl"
+            class="overflow-y-auto"
           >
-            <div class="subtitle-1 text-h6 grey--text mb-3">
+            <div class="subtitle-1 text-h6 grey--text mb-5 pt-5">
               LOMPAT KE SOAL :
             </div>
-            <v-row>
+            <v-row class="">
               <v-col
-                cols="3"
+                cols="2"
                 v-for="item in soal.jumlah_soal"
                 :key="item"
               >
-                <v-chip
+                <div
+                  @click="fetchSoalTo(item)"
+                  class="font-weight-bold white--text"
+                  style="display: flex;justify-content: center;align-items: center; border-radius: 50px; background-color: green; height: 35px;width:35px;"
+                >
+                  {{ item }}
+                </div>
+                <!-- <v-chip
                   color="green"
                   class="text-center"
                   @click="fetchSoalTo(item)"
-                >{{ item }}</v-chip>
+                >{{ item }}</v-chip> -->
               </v-col>
             </v-row>
             <v-btn
               class="mt-6"
               color="error"
               @click="sheet = !sheet"
+              block
+              outlined
             >
               Tutup
             </v-btn>

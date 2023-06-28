@@ -1,11 +1,8 @@
 <template>
-  <v-container
-    fluid
-    class="pt-0 grid-list-xl"
-  >
+  <v-container>
     <v-flex
       row
-      class="pl-3 pb-2 pt-5"
+      class="pl-2 pb-2 pt-5"
     >
       <v-icon :color="theme">dashboard</v-icon>
       <v-subheader class="text-h6"> DASHBOARD PESERTA </v-subheader>
@@ -26,33 +23,29 @@
       </v-alert>
     </v-row>
 
-    <v-row class="pa-1">
-      <v-col class="stats-widget-v3">
+    <v-row>
+      <v-col :cols="device.desktop ? 6:12">
         <v-card
           class="mx-auto"
-          max-width="500"
+          height="500"
         >
           <v-toolbar
             :color="theme"
             dark
           >
-            <v-app-bar-nav-icon></v-app-bar-nav-icon>
-
-            <v-toolbar-title class="white--text">Identitas Peserta</v-toolbar-title>
-
+            <v-toolbar-title class="white--text font-weight-thin">Identitas Peserta</v-toolbar-title>
             <v-spacer></v-spacer>
           </v-toolbar>
 
           <v-card
             class="mx-auto overflow-y-auto"
             height="500"
-            max-width="500"
           >
             <v-card-text>
               <v-row>
                 <v-col cols="6">
-                  <v-card-title>{{ peserta.nomor_register }}</v-card-title>
-                  <v-card-subtitle class="mt-o justify-content-between">Nomor Register
+                  <v-card-title>{{ peserta.nisn }}</v-card-title>
+                  <v-card-subtitle class="mt-o justify-content-between fon">Nomor Peserta
                   </v-card-subtitle>
                 </v-col>
                 <v-spacer></v-spacer>
@@ -68,6 +61,7 @@
                         dark
                         v-bind="attrs"
                         v-on="on"
+                        v-show="false"
                       >
                         <v-icon>print</v-icon>
                         &nbsp;&nbsp;CETAK BUKTI
@@ -175,25 +169,27 @@
           </v-card>
         </v-card>
       </v-col>
-      <v-col class="stats-widget-v2">
+      <v-col
+        :cols="device.desktop ? 6 :12"
+        :class="device.desktop ? ``:`mt-16`"
+      >
         <v-card
           class="mx-auto"
-          max-width=500
+          height="500"
         >
           <v-toolbar
             :color="theme"
             dark
           >
-            <v-app-bar-nav-icon></v-app-bar-nav-icon>
 
-            <v-toolbar-title class="white--text">Jadwal Ujian</v-toolbar-title>
+            <v-toolbar-title class="white--text font-weight-thin ">Jadwal Ujian</v-toolbar-title>
 
             <v-spacer></v-spacer>
           </v-toolbar>
 
           <v-card
             class="mx-auto overflow-y-auto"
-            height="300"
+            height="500"
           >
             <v-list three-line>
               <template v-for="(item, index) in jadwals">
@@ -228,18 +224,16 @@
           </v-card>
         </v-card>
       </v-col>
-      <v-col class="stats-widget-v3">
-        <v-card
-          class="mx-auto"
-          max-width="500"
-        >
+      <v-col
+        cols="12"
+        class="mt-16"
+      >
+        <v-card class="mx-auto">
           <v-toolbar
             :color="theme"
             dark
           >
-            <v-app-bar-nav-icon></v-app-bar-nav-icon>
-
-            <v-toolbar-title class="white--text">Pesan</v-toolbar-title>
+            <v-toolbar-title class="white--text font-weight-thin">Pesan</v-toolbar-title>
 
             <v-spacer></v-spacer>
           </v-toolbar>
@@ -247,7 +241,6 @@
           <v-card
             class="mx-auto overflow-y-auto"
             height="500"
-            max-width="500"
           >
             <v-list three-line>
               <template v-for="(item, index) in pesans">
@@ -281,7 +274,10 @@
         </v-card>
       </v-col>
     </v-row>
-    <v-row class="pa-1">
+    <v-row
+      class="pa-1"
+      v-show="false"
+    >
       <v-col cols="12">
         <v-card class="mx-auto">
           <v-toolbar

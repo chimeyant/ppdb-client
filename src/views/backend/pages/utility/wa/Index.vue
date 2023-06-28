@@ -247,9 +247,7 @@ export default {
 
     jenisinformasis: [
       { text: "Umum (Semua Peserta)", value: "informasi-umum" },
-      { text: "Umum Peserta Lulus", value: "informasi-umum-lulus" },
-      { text: "Umum Peserta Tidak Lulus", value: "informasi-umum-tidak-lulus" },
-      { text: "Broadcast Daftar Akun Peserta", value: "informasi-akun" },
+      { text: "Kirim Daftar Akun Peserta", value: "informasi-akun" },
     ],
   }),
   computed: {
@@ -350,7 +348,7 @@ export default {
       if (this.record.jenis_informasi == "informasi-umum") {
         this.postKirimInformasi();
       }
-      if (this.record.jenis_informasi == "infromasi-akun") {
+      if (this.record.jenis_informasi == "informasi-akun") {
         this.postSendBulkAccount();
       }
     },
