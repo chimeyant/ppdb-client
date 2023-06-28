@@ -18,7 +18,7 @@
         <v-card>
           <v-card-title :class="`flex flex-row-reverse ` + theme + ` lighten-1`">
             <v-tooltip
-              color="purple draken-4"
+              :color="theme"
               bottom
             >
               <template v-slot:activator="{ on }">
@@ -37,7 +37,7 @@
               <span>Hapus Data</span>
             </v-tooltip>
             <v-tooltip
-              color="purple draken-4"
+              :color="theme"
               bottom
             >
               <template v-slot:activator="{ on }">
@@ -198,7 +198,7 @@
               outlined
               :color="theme"
               v-show="!edit"
-              @click="postKirimInformasi"
+              @click="postSendMessage"
             >Kirim</v-btn>
             <v-btn
               outlined
@@ -246,8 +246,10 @@ export default {
     jenisinformasi: "",
 
     jenisinformasis: [
-      { text: "Umum", value: "informasi-umum" },
-      { text: "Akun", value: "informasi-akun" },
+      { text: "Umum (Semua Peserta)", value: "informasi-umum" },
+      { text: "Umum Peserta Lulus", value: "informasi-umum-lulus" },
+      { text: "Umum Peserta Tidak Lulus", value: "informasi-umum-tidak-lulus" },
+      { text: "Broadcast Daftar Akun Peserta", value: "informasi-akun" },
     ],
   }),
   computed: {
@@ -344,6 +346,15 @@ export default {
       this.postConfirmDelete(val);
     },
 
+    postSendMessage: async function () {
+      if (this.record.jenis_informasi == "informasi-umum") {
+        this.postKirimInformasi();
+      }
+      if (this.record.jenis_informasi == "infromasi-akun") {
+        this.postSendBulkAccount();
+      }
+    },
+
     postKirimInformasi: async function () {
       try {
         this.setLoading({ dialog: true, text: "Proses kirim pesan...!" });
@@ -367,6 +378,35 @@ export default {
         this.snackbar.state = true;
       } finally {
         this.setLoading({ dialog: false, text: "" });
+      }
+    },
+
+    postSendBulkAccount: async function () {
+      try {
+        this.setLoading({ dialog: true, text: "Proses kirim pesan...!" });
+        let {
+          data: { status, message },
+        } = await this.http.post(
+          "api/utility-send-bulk-message-account",
+          this.record
+        );
+        if (!status) {
+          this.snackbar.color = "red";
+          this.snackbar.text = message;
+          this.snackbar.state = true;
+          return;
+        }
+        this.snackbar.color = this.theme;
+        this.snackbar.text = message;
+        this.snackbar.state = true;
+        this.fetchRecords();
+        this.add = false;
+      } catch (error) {
+        this.snackbar.color = "red";
+        this.snackbar.text = "Opps..., terjadi kesalahan " + error;
+        this.snackbar.state = true;
+      } finally {
+        this.setLoading({ dialog: false, text: false });
       }
     },
 

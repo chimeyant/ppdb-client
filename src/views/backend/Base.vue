@@ -189,7 +189,7 @@
     <v-dialog
       v-model="dialog.delete"
       persistent
-      max-width="300px"
+      max-width="400px"
     >
       <v-card>
         <v-card-title
@@ -199,9 +199,9 @@
           <v-icon
             color="white"
             class="pr-3"
-            smalll
-          >mdi-alert-circle</v-icon>
-          <span class="subtitle-1 animate__animated animate__flash animate__infinite ">Konfirmasi</span>
+            large
+          >mdi-delete-circle-outline</v-icon>
+          <span class="title animate__animated animate__flash animate__infinite ">Konfirmasi</span>
         </v-card-title>
         <v-card-text>
           <p class="pt-5">Apakah anda yakin akan menghapus data tersebut...?</p>
@@ -215,10 +215,9 @@
           >Tidak</v-btn>
           <v-btn
             color="red"
-            text
+            outlined
             @click="deleteRecord"
           >Ya, Saya Yakin</v-btn>
-          <v-spacer></v-spacer>
         </v-card-actions>
       </v-card>
     </v-dialog>
@@ -328,7 +327,7 @@ export default {
     signout: function () {
       this.clearMenu();
       this.signOut();
-      this.$router.push({ name: "home" });
+      this.$router.push({ name: "login" });
     },
     deleteRecord: function () {
       this.postDelete().then(() => {

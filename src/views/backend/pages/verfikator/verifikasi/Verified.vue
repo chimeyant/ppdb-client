@@ -19,18 +19,30 @@
       <v-col col="12">
         <v-card>
           <v-card-title :class="`flex flex-row-reverse ` + theme + ` lighten-1`">
+
             <v-btn
               icon
               @click="fetchRecords"
             ><v-icon color="white">autorenew</v-icon></v-btn>
-            <!-- <v-btn
-              icon
-              @click="downloadExcel"
-            ><v-icon color="white">mdi-cloud-download</v-icon></v-btn> -->
-            <v-btn
-              icon
-              @click="openFormImport"
-            ><v-icon color="white">mdi-cloud-upload</v-icon></v-btn>
+            <v-tooltip
+              :color="theme"
+              bottom
+            >
+              <template v-slot:activator="{ on }">
+                <v-btn
+                  text
+                  small
+                  icon
+                  v-on="on"
+                >
+                  <v-icon
+                    color="white"
+                    @click="openFormImport"
+                  >mdi-cloud-upload</v-icon>
+                </v-btn>
+              </template>
+              <span>Import Data Peserta</span>
+            </v-tooltip>
             <v-spacer></v-spacer>
             <v-text-field
               v-model="search"

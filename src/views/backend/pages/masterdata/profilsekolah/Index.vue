@@ -621,7 +621,7 @@
     <v-dialog
       v-model="dialog"
       persistent
-      max-width="300px"
+      max-width="400px"
     >
       <v-card>
         <v-card-title
@@ -630,9 +630,10 @@
         >
           <v-icon
             color="white"
-            class="pr-3"
-          >mdi-alert-circle</v-icon>
-          <span class="subtitle-1">Konfirmasi</span>
+            class="pr-3 "
+            large
+          >mdi-delete-circle-outline</v-icon>
+          <span class="title">Konfirmasi</span>
         </v-card-title>
         <v-card-text>
           <p class="pt-5">Apakah anda yakin akan menghapus data pendaftar..?</p>
@@ -646,10 +647,10 @@
           >Tidak</v-btn>
           <v-btn
             color="red"
-            text
+            outlined
             @click="confirmDialog"
           >Ya, Saya Yakin</v-btn>
-          <v-spacer></v-spacer>
+
         </v-card-actions>
       </v-card>
     </v-dialog>

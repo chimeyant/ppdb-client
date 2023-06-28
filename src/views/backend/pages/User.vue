@@ -25,12 +25,26 @@
             >
               <v-icon color="white">autorenew</v-icon>
             </v-btn>
-            <v-btn
-              icon
-              @click="postGenerateAccount"
+
+            <v-tooltip
+              :color="theme"
+              bottom
             >
-              <v-icon color="white">mdi-account-details</v-icon>
-            </v-btn>
+              <template v-slot:activator="{ on }">
+                <v-btn
+                  text
+                  small
+                  icon
+                  v-on="on"
+                >
+                  <v-icon
+                    color="white"
+                    @click="postGenerateAccount"
+                  >mdi-account-details</v-icon>
+                </v-btn>
+              </template>
+              <span>Generate Akun Peserta</span>
+            </v-tooltip>
             <v-spacer></v-spacer>
             <v-text-field
               v-model="search"
