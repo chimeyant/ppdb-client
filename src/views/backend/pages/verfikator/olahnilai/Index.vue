@@ -347,7 +347,7 @@
       <v-dialog
         v-model="form.dialog"
         persistent
-        max-width="300px"
+        max-width="400px"
       >
         <v-card>
           <v-card-title
@@ -357,8 +357,8 @@
             <v-icon
               color="white"
               class="pr-3"
-            >report_problem</v-icon>
-            <span>Konfirmasi</span>
+            >mdi-alert-circle</v-icon>
+            <span class="title">Konfirmasi</span>
           </v-card-title>
           <v-card-text>
             <p class="pt-5">
@@ -372,7 +372,7 @@
             <v-btn
               :color="theme"
               text
-              @click="dialogGrade2Close"
+              @click="closeDialogGrade2"
             >Tidak</v-btn>
             <v-btn
               color="red"
