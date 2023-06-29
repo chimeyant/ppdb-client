@@ -138,7 +138,7 @@
                     >mail</v-icon>
                   </v-btn>
                 </template>
-                <span>Kirim Ulan</span>
+                <span>Kirim Ulang</span>
               </v-tooltip>
             </template>
           </v-data-table>
@@ -157,7 +157,7 @@
             :color="theme"
             dark
           >Formulir Wa Blast</v-toolbar>
-          <v-card-title class="justify-center">DATA WA</v-card-title>
+          <v-card-title class="justify-center grey--text">Data Pengiriman Pesan</v-card-title>
           <v-card-text>
             <v-col cols="12">
               <v-select
@@ -182,8 +182,9 @@
             </v-col>
             <v-col cols="12">
               <v-textarea
-                label="Pesan"
+                label="Pesan/Keterangan"
                 :color="theme"
+                placeholder="Silahkan ketik pesan atau keterangan"
                 outlined
                 dense
                 hide-details
@@ -249,6 +250,10 @@ export default {
       { text: "Umum (Semua Peserta)", value: "informasi-umum" },
       { text: "Kirim Daftar Akun Peserta", value: "informasi-akun" },
       { text: "Jadwal Ujian", value: "informasi-jadwal-ujian" },
+      {
+        text: "Jadwal Ujian Simulasi",
+        value: "informasi-jadwal-ujian-simulasi",
+      },
     ],
   }),
   computed: {
@@ -355,6 +360,9 @@ export default {
       if (this.record.jenis_informasi == "informasi-jadwal-ujian") {
         this.postSendJadwal();
       }
+      if (this.record.jenis_informasi == "informasi-jadwal-ujian-simulasi") {
+        this.postSendJadwalSimulasi();
+      }
     },
 
     postKirimInformasi: async function () {
@@ -418,6 +426,36 @@ export default {
         let {
           data: { status, message },
         } = await this.http.post("api/utility-send-jadwal", this.record);
+
+        if (!status) {
+          this.snackbar.color = "red";
+          this.snackbar.text = message;
+          this.snackbar.state = true;
+          return;
+        }
+        this.snackbar.color = this.theme;
+        this.snackbar.text = message;
+        this.snackbar.state = true;
+        this.fetchRecords();
+        this.add = false;
+      } catch (error) {
+        this.snackbar.color = "red";
+        this.snackbar.text = "Opps..., terjadi kesalahan " + error;
+        this.snackbar.state = true;
+      } finally {
+        this.setLoading({ dialog: false, text: "" });
+      }
+    },
+
+    postSendJadwalSimulasi: async function () {
+      try {
+        this.setLoading({ dialod: true, text: "Proses kirim pesan" });
+        let {
+          data: { status, message },
+        } = await this.http.post(
+          "api/utility-send-jadwal-simulasi",
+          this.record
+        );
 
         if (!status) {
           this.snackbar.color = "red";
