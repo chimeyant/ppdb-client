@@ -113,7 +113,7 @@
                     small
                     :color="value ? `green` : `red`"
                   >{{
-                    value ? "TERKIRIM" : "BELUM TERKIRIM"
+                    value ? "TERKIRIM" : "GAGAL"
                   }}</v-chip>
                 </template>
                 <span>Kirim Ulang Pesan</span>
