@@ -1,24 +1,37 @@
 <template>
-  <v-container fluid class="pt-0 grid-list-xl">
-    <v-flex row class="pl-3 pb-2 pt-5"> </v-flex>
+  <v-container
+    fluid
+    class="pt-0 grid-list-xl"
+  >
+    <v-flex
+      row
+      class="pl-3 pb-2 pt-5"
+    > </v-flex>
     <v-row class="pa-1">
       <v-col class="stats-widget-v3">
-        <v-card class="mx-auto" max-width="500">
-          <v-toolbar :color="theme" dark>
-            <v-app-bar-nav-icon></v-app-bar-nav-icon>
+        <v-card
+          class="mx-auto"
+          max-width="500"
+        >
+          <v-toolbar
+            :color="theme"
+            dark
+          >
 
-            <v-toolbar-title>KONFIRMASI UJIAN</v-toolbar-title>
+            <v-toolbar-title class="white--text">KONFIRMASI UJIAN</v-toolbar-title>
 
             <v-spacer></v-spacer>
           </v-toolbar>
 
-          <v-card class="mx-auto overflow-y-auto" max-width="500">
+          <v-card
+            class="mx-auto overflow-y-auto"
+            max-width="500"
+          >
             <v-card-text>
               <v-row>
                 <v-col cols="6">
                   <v-card-title>{{ peserta.nomor_register }}</v-card-title>
-                  <v-card-subtitle class="mt-o justify-content-between"
-                    >{{ peserta.nama }}
+                  <v-card-subtitle class="mt-o justify-content-between">{{ peserta.nama }}
                     <br />
                     {{ peserta.nisn }}
                   </v-card-subtitle>
@@ -28,7 +41,16 @@
               <div class="mt-10 title">
                 <center v-show="konfirmasi">
                   <div v-show="!selesai">
-                    Apakah Anda yakin akan melajutkan ujian ini ?
+                    Silahkan Masukan Token Ujian...!
+                  </div>
+                  <div class="mt-3">
+                    <v-text-field
+                      label=""
+                      outlined
+                      dense
+                      hide-details
+                      v-model="token"
+                    ></v-text-field>
                   </div>
                   <div v-show="selesai">
                     Terimakasih, Anda telah selesai melaksanakan ujian ini
@@ -44,23 +66,20 @@
                   :color="selesai ? `red` : `grey`"
                   class="mr-2"
                   @click="$router.go(-1)"
-                  >{{ selesai ? "KEMBALI" : "BATAL" }}</v-btn
-                >
-
+                >{{ selesai ? "KEMBALI" : "BATAL" }}</v-btn>
                 <v-btn
                   v-show="!lanjut && !selesai"
                   :color="theme"
-                  class="ml-2"
+                  class="ml-2 white--text"
                   @click="postCreateSoals"
-                  >YA, SETUJU</v-btn
-                >
+                >OK</v-btn>
+
                 <v-btn
                   v-show="lanjut"
                   color="green"
                   class="ml-2"
                   @click="postLembarSoal"
-                  >LANJUT</v-btn
-                >
+                >LANJUT</v-btn>
               </v-row>
             </v-card-text>
           </v-card>
@@ -97,6 +116,8 @@ export default {
 
     konfirmasi: true,
     lanjut: false,
+    token: null,
+    tokenstatus: false,
     pesan: null,
     selesai: false,
   }),
@@ -167,11 +188,13 @@ export default {
           data: { status, lanjut, message },
         } = await this.http.post("api/peserta/create-soals", {
           jadwal_ujian_id: this.$route.params.jadwal_ujian_id,
+          token: this.token,
         });
 
         if (!status) {
           this.konfirmasi = false;
-          this.pesan = "Silah shkan ulang beberapa saat";
+          this.pesan = message;
+          return;
         }
 
         if (!lanjut) {
