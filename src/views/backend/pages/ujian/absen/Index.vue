@@ -209,6 +209,26 @@
 
                 <span>Reset Ujian</span>
               </v-tooltip>
+              <v-tooltip
+                color="red"
+                bottom
+              >
+                <template v-slot:activator="{ on }">
+                  <v-btn
+                    text
+                    small
+                    icon
+                    v-on="on"
+                  >
+                    <v-icon
+                      color="green"
+                      @click="postSelesai(value)"
+                    >mdi-alarm-check</v-icon>
+                  </v-btn>
+                </template>
+
+                <span>Set Selesai Ujian</span>
+              </v-tooltip>
             </template>
           </v-data-table>
         </v-card>
@@ -338,7 +358,7 @@ export default {
       { text: "JAM KELUAR", value: "jam_keluar" },
       { text: "NILAI", value: "nilai" },
       { text: "STATUS", value: "status" },
-      { text: "OPSI", value: "id" },
+      { text: "OPSI", value: "id", width: 200 },
     ],
 
     search: null,
@@ -576,6 +596,30 @@ export default {
         let {
           data: { status, message },
         } = await this.http.post("reset-ujian-private", { id: val });
+        if (!status) {
+          this.snackbar.color = "red";
+          this.snackbar.text = message;
+          this.snackbar.state = true;
+          return;
+        }
+
+        this.snackbar.color = "green";
+        this.snackbar.text = message;
+        this.snackbar.state = true;
+        this.fetchRecords();
+      } catch (error) {
+        this.snackbar.color = "red";
+        this.snackbar.text = "Opps..., terjadi kesalahan " + error;
+        this.snackbar.state = true;
+      }
+    },
+
+    postSelesai: async function (val) {
+      try {
+        let {
+          data: { status, message, error },
+        } = await this.http.post("set-selesai", { id: val });
+
         if (!status) {
           this.snackbar.color = "red";
           this.snackbar.text = message;
