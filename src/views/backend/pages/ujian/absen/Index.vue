@@ -618,7 +618,7 @@ export default {
       try {
         let {
           data: { status, message, error },
-        } = await this.http.post("set-selesai", { id: val });
+        } = await this.http.post("api/set-selesai", { id: val });
 
         if (!status) {
           this.snackbar.color = "red";
