@@ -676,7 +676,7 @@ export default {
 
         // add Worksheet to Workbook
         // Workbook contains one or more worksheets
-        XLSX.utils.book_append_sheet(wb, dataxls, "daftar perserta"); // sheetAName is name of Worksheet
+        XLSX.utils.book_append_sheet(wb, dataxls, "Nilai"); // sheetAName is name of Worksheet
         //XLSX.utils.book_append_sheet(wb, pokemonWS, "pokemons");
 
         // export Excel file
