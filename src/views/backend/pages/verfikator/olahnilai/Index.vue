@@ -309,6 +309,14 @@
                   ></v-switch>
                 </v-col>
                 <v-col cols="12">
+                  <v-switch
+                    label="Afirmasi"
+                    v-model="record.afirmasi_status"
+                    :color="theme"
+                    hide-details
+                  ></v-switch>
+                </v-col>
+                <v-col cols="12">
                   <v-text-field
                     label="Penanggung Jawab"
                     :color="theme"
