@@ -225,7 +225,7 @@
             :color="theme"
             dark
           >
-            <v-toolbar-title class="white--text font-weight-thin">Iformasi PPDB</v-toolbar-title>
+            <v-toolbar-title class="white--text font-weight-thin">Informasi</v-toolbar-title>
 
             <v-spacer></v-spacer>
           </v-toolbar>
