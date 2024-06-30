@@ -235,31 +235,12 @@
             height="500"
           >
             <v-list three-line>
-              <template v-for="(item, index) in pesans">
-                <v-list-item :key="item.id">
-                  <v-list-item-content>
-                    <v-list-item-title
-                      v-html="item.title"
-                      class="font-weight-bold text-subtitle-2"
-                    ></v-list-item-title>
+              <template v-for="(item, index) in ">
+                <div class="title font-weight-bold">{{ item.title }}</div><br>
+                <div class="text-body-2">
+                  {{ item.body }}
+                </div>
 
-                    <v-list-item-subtitle>
-                      <v-sheet>
-                        {{ item.body }}
-                      </v-sheet>
-                    </v-list-item-subtitle>
-                  </v-list-item-content>
-
-                  <v-list-item-action>
-                    <v-chip
-                      small
-                      @click="openDialogMessage(item.from_id)"
-                    >
-                      Balas
-                    </v-chip>
-                  </v-list-item-action>
-                </v-list-item>
-                <v-divider></v-divider>
               </template>
             </v-list>
           </v-card>
