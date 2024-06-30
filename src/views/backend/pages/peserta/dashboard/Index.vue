@@ -234,14 +234,16 @@
             class="mx-auto overflow-y-auto"
             height="500"
           >
+            <v-card-content>
+              <div v-for="(item, index) in ">
+                <div class="title font-weight-bold">{{ item.title }}</div><br>
+                <div class="text-body-2">
+                  {{ item.body }}
+                </div>
 
-            <template v-for="(item, index) in ">
-              <div class="title font-weight-bold">{{ item.title }}</div><br>
-              <div class="text-body-2">
-                {{ item.body }}
               </div>
 
-            </template>
+            </v-card-content>
 
           </v-card>
         </v-card>
