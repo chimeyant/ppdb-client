@@ -225,7 +225,7 @@
             :color="theme"
             dark
           >
-            <v-toolbar-title class="white--text font-weight-thin">Pesan</v-toolbar-title>
+            <v-toolbar-title class="white--text font-weight-thin">I</v-toolbar-title>
 
             <v-spacer></v-spacer>
           </v-toolbar>
@@ -237,16 +237,12 @@
             <v-list three-line>
               <template v-for="(item, index) in pesans">
                 <v-list-item :key="item.id">
-                  <v-list-item-avatar>
-                    <v-img :src="item.avatar"></v-img>
-                  </v-list-item-avatar>
-
                   <v-list-item-content>
                     <v-list-item-title
-                      v-html="item.from_name"
+                      v-html="item.title"
                       class="font-weight-bold text-subtitle-2"
                     ></v-list-item-title>
-                    <v-list-item-subtitle v-html="item.title"></v-list-item-subtitle>
+
                     <v-list-item-subtitle v-html="item.body"></v-list-item-subtitle>
                   </v-list-item-content>
 
