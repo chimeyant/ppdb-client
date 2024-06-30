@@ -117,18 +117,6 @@
                   <td>{{ peserta.pil2 }}</td>
                 </tr>
                 <tr>
-                  <td>STATUS</td>
-                  <td>&nbsp;:&nbsp;</td>
-                  <td>
-                    <v-chip
-                      :color="peserta.status_color"
-                      small
-                    >{{
-                      peserta.status_text
-                    }}</v-chip>
-                  </td>
-                </tr>
-                <tr>
                   <td>KETERANGAN</td>
                   <td>&nbsp;:&nbsp;</td>
                   <td>
@@ -199,6 +187,10 @@
                       v-html="item.jadwal"
                       class="font-weight-bold text-subtitle-2"
                     ></v-list-item-title>
+                    <v-list-subtitle>
+                      SESI : {{ item.sesi }}
+                    </v-list-subtitle>
+
                     <v-list-subtitle>
                       TANGGAL : {{ item.tanggal }}
                     </v-list-subtitle>
