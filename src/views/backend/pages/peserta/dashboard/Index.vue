@@ -235,7 +235,7 @@
             height="500"
           >
             <v-card-content>
-              <div v-for="(item, index) in ">
+              <div v-for="(item, index) in pesans ">
                 <div class="title font-weight-bold">{{ item.title }}</div><br>
                 <div class="text-body-2">
                   {{ item.body }}
