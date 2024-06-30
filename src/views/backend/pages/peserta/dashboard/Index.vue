@@ -245,7 +245,7 @@
               >
                 <v-row class="pt-1">
                   <v-col cols="3">
-                    <strong>{{ item.tanggal }}</strong>
+                    <span style="font-size: 8pt;">{{ item.tanggal }}</span>
                   </v-col>
                   <v-col>
                     <strong>{{ item.title }}</strong>
