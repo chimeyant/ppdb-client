@@ -225,7 +225,7 @@
             :color="theme"
             dark
           >
-            <v-toolbar-title class="white--text font-weight-thin">I</v-toolbar-title>
+            <v-toolbar-title class="white--text font-weight-thin">Iformasi PPDB</v-toolbar-title>
 
             <v-spacer></v-spacer>
           </v-toolbar>
@@ -243,7 +243,11 @@
                       class="font-weight-bold text-subtitle-2"
                     ></v-list-item-title>
 
-                    <v-list-item-subtitle v-html="item.body"></v-list-item-subtitle>
+                    <v-list-item-subtitle>
+                      <v-sheet>
+                        {{ item.body }}
+                      </v-sheet>
+                    </v-list-item-subtitle>
                   </v-list-item-content>
 
                   <v-list-item-action>
