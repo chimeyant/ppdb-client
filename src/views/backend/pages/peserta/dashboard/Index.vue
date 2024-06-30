@@ -234,16 +234,29 @@
             class="mx-auto overflow-y-auto"
             height="500"
           >
-            <v-card-content>
-              <div v-for="(item, index) in pesans ">
-                <div class="title font-weight-bold">{{ item.title }}</div><br>
-                <div class="text-body-2">
-                  {{ item.body }}
-                </div>
+            <v-timeline
+              align-top
+              dense
+            >
+              <v-timeline-item
+                color="blue"
+                small
+                v-for="item in pesans"
+              >
+                <v-row class="pt-1">
+                  <v-col cols="3">
+                    <strong>{{ item.tanggal }}</strong>
+                  </v-col>
+                  <v-col>
+                    <strong>{{ item.title }}</strong>
+                    <div class="text-caption">
+                      {{ item.body }}
+                    </div>
+                  </v-col>
+                </v-row>
+              </v-timeline-item>
 
-              </div>
-
-            </v-card-content>
+            </v-timeline>
 
           </v-card>
         </v-card>
