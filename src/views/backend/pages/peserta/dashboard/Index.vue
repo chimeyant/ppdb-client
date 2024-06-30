@@ -43,7 +43,11 @@
           >
             <v-card-text>
               <v-row>
-                <v-col cols="6">
+                <v-col
+                  :cols="12"
+                  sm=12
+                  md-6
+                >
                   <v-card-title>{{ peserta.nisn }}</v-card-title>
                   <v-card-subtitle class="mt-o justify-content-between fon">Nomor Peserta
                   </v-card-subtitle>
