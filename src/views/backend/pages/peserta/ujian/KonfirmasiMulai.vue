@@ -41,7 +41,7 @@
               <div class="mt-10 title">
                 <center v-show="konfirmasi">
                   <div v-show="!selesai">
-                    Silahkan Masukan Token Ujian...!
+                    Apakah anda yakin akan melnjukan ujian tersebut..?
                   </div>
                   <div class="mt-3">
                     <v-text-field
@@ -50,6 +50,7 @@
                       dense
                       hide-details
                       v-model="token"
+                      v-show="false"
                     ></v-text-field>
                   </div>
                   <div v-show="selesai">
@@ -72,7 +73,7 @@
                   :color="theme"
                   class="ml-2 white--text"
                   @click="postCreateSoals"
-                >OK</v-btn>
+                >Ya</v-btn>
 
                 <v-btn
                   v-show="lanjut"
